@@ -41,7 +41,7 @@
 				{% for newspost in archive %}
 					<div class="archived-story" data-archive-story-id="{{newspost.pk}}">
 						<span class="pubdate">{{newspost.publish_date}}</span>
-						<div class="frontpage-archive_link"><a href="{{ newspost.url }}">{{ newspost.title }}</a></div>
+						<div class="frontpage-archive_link"><a href="{{ newspost.url }}{{ newspost.id }}">{{ newspost.title }}</a></div>
 						<div class="newspost-teaser" data-story_id="{{newspost.pk}}">
 							{{ newspost.teaser  }} ...
 						</div>
