@@ -17,11 +17,13 @@ def front_page(request):
     top_stories_ordered = NewsPost.objects.all().order_by('-publish_date')
     # cover_story = top_stories_ordered[2]
     cover_story = NewsPost.objects.all().order_by('?').first()
+    cover_story.body = cover_story.body.replace('<p>', '')
     top_stories = []
     other_stories = []
     # coverStoryInTopStory = False
     
     for story in top_stories_ordered:
+        story.body = story.body.replace('<p>', '')
         if cover_story.pk == story.pk:
             continue
         elif(len(top_stories) < 3):
@@ -49,6 +51,7 @@ def front_page(request):
 def newspost_detail(request, newspost_id=None):
     template = loader.get_template('wavepool/newspost.html')
     newspost = NewsPost.objects.get(pk=newspost_id)
+    newspost.body = newspost.body.replace('<p>', '')
 
     context = {
         'newspost': newspost,
