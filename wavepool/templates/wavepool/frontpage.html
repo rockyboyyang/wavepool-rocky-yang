@@ -4,14 +4,16 @@
 {% block page_content %}
 	<div class="row">
 		<div class="col-md-4">
-			<div id="coverstory" class="row" data-newspost-id="{{cover_story.pk}}">
+			<div id="coverstory" class="row" data-newspost-id="{{cover_story.id}}">
 				<h2>Cover story</h2>
 				<div class="title">
 					<span class="pubdate">{{cover_story.publish_date}}</span>
-					<a href="{{ cover_story.url }}">{{ cover_story.title }}</a>
+					<!-- Added an id parameter to the end of the url -->
+					<a href="{{ cover_story.url }}{{ cover_story.id }}">{{ cover_story.title }}</a>
 				</div>
-				<div><img src="media/image/placeholder-img.jpg"  width="300" height="175" /></div>
-				<div class="newspost-teaser" data-newspost-id="{{cover_story.pk}}">
+				<!-- Had to change img src root directory from media to static -->
+				<div><img src="static/image/placeholder-img.jpg"  width="300" height="175" /></div>
+				<div class="newspost-teaser" data-newspost-id="{{cover_story.id}}">
 					{{ cover_story.teaser }} ...
 				</div>
 			</div>

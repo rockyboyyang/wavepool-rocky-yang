@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 beautifulsoup4 = "==4.8.2"
+psycopg2-binary = "*"
 
 [dev-packages]
 
