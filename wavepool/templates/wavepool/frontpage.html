@@ -24,7 +24,7 @@
 				{% for newspost in top_stories %}
 					<div class="topstory" data-newspost-id="{{newspost.pk}}" data-top-story-placement="{{forloop.counter}}">
 						<span class="pubdate">{{newspost.publish_date}}</span>
-						<div class="frontpage-archive_link"><a href="{{ newspost.url }}">{{ newspost.title }}</a></div>
+						<div class="frontpage-archive_link"><a href="{{ newspost.url }}{{ newspost.pk }}">{{ newspost.title }}</a></div>
 						<div class="newspost-teaser" data-story_id="{{newspost.pk}}">
 							{{ newspost.teaser  }} ...
 						</div>
