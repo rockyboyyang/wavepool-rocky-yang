@@ -4,14 +4,18 @@ from wavepool.models import NewsPost
 
 
 class NewsPostForm(forms.ModelForm):
-    model = NewsPost.objects.all()
+    model = NewsPost
     fields = '__all__'
 
 
 class NewsPostAdmin(admin.ModelAdmin):
-    # print(NewsPostForm.query)
     form = NewsPostForm
-    # print(form.query)
+    
+    def get_queryset(self, request):
+        queryset = super(NewsPostAdmin, self).get_queryset(request)
+        queryset = queryset.order_by('-publish_date')
+        return queryset
+
 
 
 admin.site.register(NewsPost, NewsPostAdmin)
