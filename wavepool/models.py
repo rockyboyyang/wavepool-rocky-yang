@@ -37,3 +37,6 @@ class NewsPost(models.Model):
         return [
             'HR', 'Diversity & Inclusion', 'Culture'
         ]
+
+    def __str__(self):
+        return self.title
