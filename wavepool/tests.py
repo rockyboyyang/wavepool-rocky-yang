@@ -127,7 +127,7 @@ class SiteFrontPage(TestBase):
         cover_story_id = int(cover_story_div['data-newspost-id'])
 
         self.assertEqual(cover_story_id, cover_story.pk)
-
+    
     def test_top_stories(self):
         """ Verify that the top stories section contains the 3 most recent stories, excluding the cover story
         """

@@ -18,6 +18,8 @@ def front_page(request):
     # cover_story = top_stories_ordered[2]
     cover_story = NewsPost.objects.all().order_by('?').first()
     cover_story.body = cover_story.body.replace('<p>', '')
+    cover_story.is_cover_story = True
+    cover_story.save()
     top_stories = []
     other_stories = []
     # coverStoryInTopStory = False
@@ -30,13 +32,6 @@ def front_page(request):
             top_stories.append(story)
         else:
             other_stories.append(story)
-
-    # if coverStoryInTopStory is False:
-    #     top_stories = NewsPost.objects.all().order_by('-publish_date')[:3]
-
-
-    # other_stories = NewsPost.objects.all().order_by('-publish_date')
-
 
     context = {
         'cover_story': cover_story,
