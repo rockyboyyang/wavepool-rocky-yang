@@ -107,6 +107,7 @@ class NewsPostDetail(TestBase):
         newsposts = NewsPost.objects.all()
         unique_newspost_urls = []
         for newspost in newsposts:
+            print(newspost.url)
             self.assertNotIn(newspost.url, unique_newspost_urls)
             unique_newspost_urls.append(newspost.url)
 
